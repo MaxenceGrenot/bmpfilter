@@ -10,13 +10,13 @@ vous devez obtenir ceci :
 ### Créer la branch dev
 ` git branch dev `
 ### Se déplacer sur la branch dev
-` git checkout dev
+` git checkout dev    
   git push `
 copier la ligne de commande et l’exécuter
 vous devez obtenir ceci :
 ### Créer votre branch perso depuis la branch dev
-` git branch Feature_PrenomNom
-  git checkout Feature_PrenomNom
+` git branch Feature_PrenomNom  
+  git checkout Feature_PrenomNom  
   git push `
 copier la ligne de commande et l’exécuter
 
