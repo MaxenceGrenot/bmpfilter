@@ -1,9 +1,4 @@
 #ifndef LIMITS_H
-#if defined __APPLE__
-#include <limits.h>
-#else
-#include <linux/limits.h>
-#endif
 #define LIMITS_H
 #endif
 
@@ -16,7 +11,7 @@ typedef struct _pixel
 
 typedef struct _bitmap
 {
-    char file_path[PATH_MAX + 1];     /* PATH_MAX is embedded in the C header file "linux/limits.h" */
+    char file_path[RAND_MAX + 1];     /* PATH_MAX is embedded in the C header file "linux/limits.h" */
     char magic_number[3];             /* Offset : 0x0000 */
     unsigned int size;                /* Offset : 0x0002 */
     unsigned char application[5];     /* Offset : 0x0006 */
