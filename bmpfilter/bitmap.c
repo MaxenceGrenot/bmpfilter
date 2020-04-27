@@ -352,7 +352,35 @@ void applyFilterSimpleBlur(BITMAP *bmp)
 void applyFilterMirror(BITMAP *bmp)
 {
 
-    /* TODO */
+    printf("Applying Mirror filter... \n");
+    int i;
+    int w = bmp->width - 1;
+    int moins = 1;
+    int x = 0;
+    for (i = 0; i < bmp->width * bmp->height; i++)
+    {
+        if (w > bmp->width / 2)
+        {
+            x = bmp->raster[i].red;
+            bmp->raster[i].red = bmp->raster[i + w - moins].red;
+            bmp->raster[i + w - moins].red = x;
+
+            x = bmp->raster[i].green;
+            bmp->raster[i].green = bmp->raster[i + w - moins].green;
+            bmp->raster[i + w - moins].green = x;
+
+            x = bmp->raster[i].blue;
+            bmp->raster[i].blue = bmp->raster[i + w - moins].blue;
+            bmp->raster[i + w - moins].blue = x;
+        }
+        w--;
+        moins++;
+        if (w == 0)
+        {
+            w = bmp->width;
+            moins = 1;
+        }
+    }
 }
 
 void applyFilter(BITMAP *bmp, FILTER filter)
