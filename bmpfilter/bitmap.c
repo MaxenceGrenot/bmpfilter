@@ -281,7 +281,24 @@ void applyFilterSimpleBlur(BITMAP *bmp)
  */
 void applyFilterMirror(BITMAP *bmp)
 {
-    /* TODO */
+    const int line_size = bmp->x * sizeof(pixel_t);
+    const int middle = bmp->y / 2;
+    int y;
+
+    pixel_t* buff = (pixel_t)malloc(line_size);
+    pixel_t top;
+    pixel_t* bottom;
+
+    for (y = 0; y < middle; ++y)
+    {
+        // swap des ligne haut et bas
+        top = bmp->data + (y * bmp->x);
+        bottom = bmp->data + ((bmp->y - y - 1) * bmp->x);
+
+        memcpy(buff, top, line_size);
+        memcpy(top, bottom, line_size);
+        memcpy(bottom, buff, line_size);
+    }
 }
 
 void applyFilter(BITMAP *bmp, FILTER filter)
