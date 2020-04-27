@@ -54,3 +54,4 @@ dkms.conf
 
 #BMP
 *.bmp
+*.bmp_mod
