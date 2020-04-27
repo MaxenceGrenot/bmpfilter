@@ -2,7 +2,7 @@
 
 ## Voici les commandes nécessaires pour utiliser le git : 
 ### Importer la branche ‘master’ dans le répertoire que vous voulez
-` git clone git@github.com:MaxenceGrenot/bmpflter.git `
+` git clone https://github.com/MaxenceGrenot/bmpfilter.git `
 
 ### Ouvrir git bash dans le répertoire dans lequel vous avez cloné le projet
 ` cd bmpfilter/bmpfilter `
