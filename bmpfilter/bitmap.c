@@ -283,6 +283,15 @@ void applyFilterColor(BITMAP *bmp, FILTER filter)
             bmp->raster[i].green = 0;
         }
     }
+	if (filter == BLUE)
+    {
+        printf("Applying blue filter... \n");
+        for (i = 0; i < bmp->width * bmp->height; i++)
+        {
+            bmp->raster[i].blue = 0;
+        }
+    }
+	
     
 }
 
