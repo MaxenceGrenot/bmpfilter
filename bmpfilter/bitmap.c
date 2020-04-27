@@ -294,7 +294,6 @@ void applyFilterMirror(BITMAP *bmp)
 
     for (y = 0; y < middle; ++y)
     {
-        // swap des ligne haut et bas
         top = bmp->data + (y * bmp->x);
         bottom = bmp->data + ((bmp->y - y - 1) * bmp->x);
 
