@@ -266,8 +266,24 @@ void setPixel(PIXEL *raster, int width, int height, int x, int y, PIXEL *value)
  */
 void applyFilterColor(BITMAP *bmp, FILTER filter)
 {
-    /* TODO */
-    /* Zeroing the specified color channel for every pixels */
+    int i = 0;
+    if (filter == RED)
+    {
+        printf("Applying red filter... \n");
+        for (i = 0; i < bmp->width * bmp->height; i++)
+        {
+            bmp->raster[i].red = 0;
+        }
+    }
+    if (filter == GREEN)
+    {
+        printf("Applying green filter... \n");
+        for (i = 0; i < bmp->width * bmp->height; i++)
+        {
+            bmp->raster[i].green = 0;
+        }
+    }
+    
 }
 
 /*
