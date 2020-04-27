@@ -1,7 +1,13 @@
 #ifndef LIMITS_H
+#include <limits.h>
 #define LIMITS_H
 #endif
 
+#ifndef MAX_PATH
+#define MAX_PATH 256
+#endif
+
+/* Structure pixel : rouge, bleu, vert */
 typedef struct _pixel
 {
     unsigned char blue;
@@ -11,7 +17,7 @@ typedef struct _pixel
 
 typedef struct _bitmap
 {
-    char file_path[RAND_MAX + 1];     /* PATH_MAX is embedded in the C header file "linux/limits.h" */
+    char file_path[MAX_PATH + 1];
     char magic_number[3];             /* Offset : 0x0000 */
     unsigned int size;                /* Offset : 0x0002 */
     unsigned char application[5];     /* Offset : 0x0006 */

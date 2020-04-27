@@ -13,7 +13,6 @@
 
 int main(int argc, char *argv[])
 {
-    printf("program starting\n");
     BITMAP *bmp = NULL;
     int i;
 
