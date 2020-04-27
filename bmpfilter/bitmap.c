@@ -298,6 +298,7 @@ void applyFilterColor(BITMAP *bmp, FILTER filter)
  */
 void applyFilterSimpleBlur(BITMAP *bmp)
 {
+
     printf("Applying blur filter... \n");
     int pixel = 0;
     for (pixel = bmp->width + 2; pixel < (bmp->width * (bmp->height - 1)) - 2; pixel++)
@@ -339,6 +340,7 @@ void applyFilterSimpleBlur(BITMAP *bmp)
              bmp->raster[pixel - bmp->width + 1].blue) /
             9;
     }
+
 }
 
 /*
@@ -346,6 +348,7 @@ void applyFilterSimpleBlur(BITMAP *bmp)
  */
 void applyFilterMirror(BITMAP *bmp)
 {
+
 
     printf("Applying Mirror filter... \n");
     int i;

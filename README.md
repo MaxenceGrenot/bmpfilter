@@ -6,11 +6,11 @@
 
 ### Ouvrir git bash dans le répertoire dans lequel vous avez cloné le projet
 ` cd bmpfilter/bmpfilter `
-
+vous devez obtenir ceci :
 ### Créer la branch dev
 ` git branch dev `
-
 ### Se déplacer sur la branch dev
+
 ` git checkout dev `   
 
 ` git push `
