@@ -272,8 +272,49 @@ void applyFilterColor(BITMAP *bmp, FILTER filter)
  */
 void applyFilterSimpleBlur(BITMAP *bmp)
 {
-    /* TODO */
-    /* Considering each color channel of a pixel as the average result of the 9 pixels matrix centered on it */
+    printf("Applying blur filter... \n");
+    int pixel = 0;
+    for (pixel = bmp->width + 2; pixel < (bmp->width * (bmp->height - 1)) - 2; pixel++)
+    {
+        /*calcul de la moyenne des pixels rouges*/
+        bmp->raster[pixel].red =
+                (bmp->raster[pixel].red +
+                 bmp->raster[pixel + 1].red +
+                 bmp->raster[pixel - 1].red +
+                 bmp->raster[pixel + bmp->width].red +
+                 bmp->raster[pixel - bmp->width].red +
+                 bmp->raster[pixel + bmp->width - 1].red +
+                 bmp->raster[pixel - bmp->width - 1].red +
+                 bmp->raster[pixel + bmp->width + 1].red +
+                 bmp->raster[pixel - bmp->width + 1].red) /
+                9;
+        /*calcul de la moyenne des pixels verts*/
+        bmp->raster[pixel].green =
+                (bmp->raster[pixel].green +
+                 bmp->raster[pixel + 1].green +
+                 bmp->raster[pixel - 1].green +
+                 bmp->raster[pixel + bmp->width].green +
+                 bmp->raster[pixel - bmp->width].green +
+                 bmp->raster[pixel + bmp->width - 1].green +
+                 bmp->raster[pixel - bmp->width - 1].green +
+                 bmp->raster[pixel + bmp->width + 1].green +
+                 bmp->raster[pixel - bmp->width + 1].green) /
+                9;
+        /* calcul de la moyenne des pixels bleus*/
+        bmp->raster[pixel].blue =
+                (bmp->raster[pixel].blue +
+                 bmp->raster[pixel + 1].blue +
+                 bmp->raster[pixel - 1].blue +
+                 bmp->raster[pixel + bmp->width].blue +
+                 bmp->raster[pixel - bmp->width].blue +
+                 bmp->raster[pixel + bmp->width - 1].blue +
+                 bmp->raster[pixel - bmp->width - 1].blue +
+                 bmp->raster[pixel + bmp->width + 1].blue +
+                 bmp->raster[pixel - bmp->width + 1].blue) /
+                9;
+    }
+
+    printf("BLUR --> OK")
 }
 
 /*
@@ -281,6 +322,7 @@ void applyFilterSimpleBlur(BITMAP *bmp)
  */
 void applyFilterMirror(BITMAP *bmp)
 {
+
     /* TODO */
 }
 
