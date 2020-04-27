@@ -2,14 +2,17 @@
 #include <stdlib.h>
 #define STDLIB_H
 #endif
+
 #ifndef STDIO_H
 #include <stdio.h>
 #define STDIO_H
 #endif
+
 #ifndef STRING_H
 #include <string.h>
 #define STRING_H
 #endif
+
 #ifndef BITMAP_H
 #include "bitmap.h"
 #define BITMAP_H
@@ -244,18 +247,18 @@ void destroyBitmap(BITMAP *bmp)
  * Getting a pixel from the raster using its coordinates following the
  * common logic (The upper-left pixel coordinates are (0, 0))
  */
-PIXEL *getPixel(PIXEL *raster, int width, int height, int y, int x)
+PIXEL *getPixel(PIXEL *raster, int width, int height, int x, int y)
 {
-    /* TODO */
+    return raster;
 }
 
 /*
  * Setting a pixel from the raster using its coordinates following the
  * common logic (The upper-left pixel coordinates are (0, 0))
  */
-void setPixel(PIXEL *raster, int width, int height, int y, int x, PIXEL *value)
+void setPixel(PIXEL *raster, int width, int height, int x, int y, PIXEL *value)
 {
-    /* TODO */
+    (*raster).red = 0;
 }
 
 /*
@@ -303,8 +306,25 @@ void applyFilterMirror(BITMAP *bmp)
 
 void applyFilter(BITMAP *bmp, FILTER filter)
 {
-    /* TODO */
-    /* Dispatcher that calls the right method regarding the filter to apply on the bitmap */
+    switch (filter)
+    {
+    case RED:
+    case GREEN:
+    case BLUE:
+        applyFilterColor(bmp, filter);
+        break;
+
+    case BLUR:
+        applyFilterSimpleBlur(bmp);
+        break;
+
+    case MIRROR:
+        applyFilterMirror(bmp);
+        break;
+
+    case UNKNOWN:
+        break;
+    }
 }
 
 FILTER getCorrespondingFilter(const char *filter_name)
