@@ -15,7 +15,7 @@
 
 ` git push `
 
-copier la ligne de commande et l’exécuter
+copier les lignes de commande et les exécuter
 
 ### Créer votre branch perso depuis la branch dev
 ` git branch Feature_PrenomNom ` 
@@ -24,7 +24,10 @@ copier la ligne de commande et l’exécuter
 
 ` git push `
 
-copier la ligne de commande et l’exécuter
+copier les lignes de commande et les exécuter
+
+Pour lancer le programme : 
+` gcc -pedantic -ansi -Wall -o bmpfilter *.c` 
 
 > ⚠Vous ne faite des commits et des push que sur votre
 branch perso !!!
