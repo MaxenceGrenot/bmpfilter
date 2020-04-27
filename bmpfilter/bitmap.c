@@ -283,7 +283,7 @@ void applyFilterColor(BITMAP *bmp, FILTER filter)
             bmp->raster[i].green = 0;
         }
     }
-	if (filter == BLUE)
+    if (filter == BLUE)
     {
         printf("Applying blue filter... \n");
         for (i = 0; i < bmp->width * bmp->height; i++)
@@ -291,8 +291,6 @@ void applyFilterColor(BITMAP *bmp, FILTER filter)
             bmp->raster[i].blue = 0;
         }
     }
-	
-    
 }
 
 /*
@@ -306,43 +304,41 @@ void applyFilterSimpleBlur(BITMAP *bmp)
     {
         /*calcul de la moyenne des pixels rouges*/
         bmp->raster[pixel].red =
-                (bmp->raster[pixel].red +
-                 bmp->raster[pixel + 1].red +
-                 bmp->raster[pixel - 1].red +
-                 bmp->raster[pixel + bmp->width].red +
-                 bmp->raster[pixel - bmp->width].red +
-                 bmp->raster[pixel + bmp->width - 1].red +
-                 bmp->raster[pixel - bmp->width - 1].red +
-                 bmp->raster[pixel + bmp->width + 1].red +
-                 bmp->raster[pixel - bmp->width + 1].red) /
-                9;
+            (bmp->raster[pixel].red +
+             bmp->raster[pixel + 1].red +
+             bmp->raster[pixel - 1].red +
+             bmp->raster[pixel + bmp->width].red +
+             bmp->raster[pixel - bmp->width].red +
+             bmp->raster[pixel + bmp->width - 1].red +
+             bmp->raster[pixel - bmp->width - 1].red +
+             bmp->raster[pixel + bmp->width + 1].red +
+             bmp->raster[pixel - bmp->width + 1].red) /
+            9;
         /*calcul de la moyenne des pixels verts*/
         bmp->raster[pixel].green =
-                (bmp->raster[pixel].green +
-                 bmp->raster[pixel + 1].green +
-                 bmp->raster[pixel - 1].green +
-                 bmp->raster[pixel + bmp->width].green +
-                 bmp->raster[pixel - bmp->width].green +
-                 bmp->raster[pixel + bmp->width - 1].green +
-                 bmp->raster[pixel - bmp->width - 1].green +
-                 bmp->raster[pixel + bmp->width + 1].green +
-                 bmp->raster[pixel - bmp->width + 1].green) /
-                9;
+            (bmp->raster[pixel].green +
+             bmp->raster[pixel + 1].green +
+             bmp->raster[pixel - 1].green +
+             bmp->raster[pixel + bmp->width].green +
+             bmp->raster[pixel - bmp->width].green +
+             bmp->raster[pixel + bmp->width - 1].green +
+             bmp->raster[pixel - bmp->width - 1].green +
+             bmp->raster[pixel + bmp->width + 1].green +
+             bmp->raster[pixel - bmp->width + 1].green) /
+            9;
         /* calcul de la moyenne des pixels bleus*/
         bmp->raster[pixel].blue =
-                (bmp->raster[pixel].blue +
-                 bmp->raster[pixel + 1].blue +
-                 bmp->raster[pixel - 1].blue +
-                 bmp->raster[pixel + bmp->width].blue +
-                 bmp->raster[pixel - bmp->width].blue +
-                 bmp->raster[pixel + bmp->width - 1].blue +
-                 bmp->raster[pixel - bmp->width - 1].blue +
-                 bmp->raster[pixel + bmp->width + 1].blue +
-                 bmp->raster[pixel - bmp->width + 1].blue) /
-                9;
+            (bmp->raster[pixel].blue +
+             bmp->raster[pixel + 1].blue +
+             bmp->raster[pixel - 1].blue +
+             bmp->raster[pixel + bmp->width].blue +
+             bmp->raster[pixel - bmp->width].blue +
+             bmp->raster[pixel + bmp->width - 1].blue +
+             bmp->raster[pixel - bmp->width - 1].blue +
+             bmp->raster[pixel + bmp->width + 1].blue +
+             bmp->raster[pixel - bmp->width + 1].blue) /
+            9;
     }
-
-    printf("BLUR --> OK")
 }
 
 /*
@@ -401,6 +397,7 @@ void applyFilter(BITMAP *bmp, FILTER filter)
         break;
 
     case UNKNOWN:
+        printf("a parameter doesn't exist \n");
         break;
     }
 }
