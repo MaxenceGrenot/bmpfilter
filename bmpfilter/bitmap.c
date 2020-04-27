@@ -272,46 +272,45 @@ void applyFilterColor(BITMAP *bmp, FILTER filter)
  */
 void applyFilterSimpleBlur(BITMAP *bmp)
 {
+    printf("Applying blur filter... \n");
     int pixel = 0;
-    for (pixel=bmp->width + 2 ; pixel < (bmp->width * (bmp->height -1)) - 2; pixel){
-
-        //calcul de la moyenne des pixels rouges
-        bmp->raster[index].red =
-                (bmp->raster[index].red +
-                 bmp->raster[index + 1].red +
-                 bmp->raster[index - 1].red +
-                 bmp->raster[index + bmp->width].red +
-                 bmp->raster[index - bmp->width].red +
-                 bmp->raster[index + bmp->width - 1].red +
-                 bmp->raster[index - bmp->width - 1].red +
-                 bmp->raster[index + bmp->width + 1].red +
-                 bmp->raster[index - bmp->width + 1].red) /
+    for (pixel = bmp->width + 2; pixel < (bmp->width * (bmp->height - 1)) - 2; pixel++)
+    {
+        /*calcul de la moyenne des pixels rouges*/
+        bmp->raster[pixel].red =
+                (bmp->raster[pixel].red +
+                 bmp->raster[pixel + 1].red +
+                 bmp->raster[pixel - 1].red +
+                 bmp->raster[pixel + bmp->width].red +
+                 bmp->raster[pixel - bmp->width].red +
+                 bmp->raster[pixel + bmp->width - 1].red +
+                 bmp->raster[pixel - bmp->width - 1].red +
+                 bmp->raster[pixel + bmp->width + 1].red +
+                 bmp->raster[pixel - bmp->width + 1].red) /
                 9;
-
-        //calcul de la moyenne des pixels vert
-        bmp->raster[index].green =
-                (bmp->raster[index].green +
-                 bmp->raster[index + 1].green +
-                 bmp->raster[index - 1].green +
-                 bmp->raster[index + bmp->width].green +
-                 bmp->raster[index - bmp->width].green +
-                 bmp->raster[index + bmp->width - 1].green +
-                 bmp->raster[index - bmp->width - 1].green +
-                 bmp->raster[index + bmp->width + 1].green +
-                 bmp->raster[index - bmp->width + 1].green) /
+        /*calcul de la moyenne des pixels verts*/
+        bmp->raster[pixel].green =
+                (bmp->raster[pixel].green +
+                 bmp->raster[pixel + 1].green +
+                 bmp->raster[pixel - 1].green +
+                 bmp->raster[pixel + bmp->width].green +
+                 bmp->raster[pixel - bmp->width].green +
+                 bmp->raster[pixel + bmp->width - 1].green +
+                 bmp->raster[pixel - bmp->width - 1].green +
+                 bmp->raster[pixel + bmp->width + 1].green +
+                 bmp->raster[pixel - bmp->width + 1].green) /
                 9;
-
-        //calcul de la moyenne des pixels bleu
-        bmp->raster[index].blue =
-                (bmp->raster[index].blue +
-                 bmp->raster[index + 1].blue +
-                 bmp->raster[index - 1].blue +
-                 bmp->raster[index + bmp->width].blue +
-                 bmp->raster[index - bmp->width].blue +
-                 bmp->raster[index + bmp->width - 1].blue +
-                 bmp->raster[index - bmp->width - 1].blue +
-                 bmp->raster[index + bmp->width + 1].blue +
-                 bmp->raster[index - bmp->width + 1].blue) /
+        /* calcul de la moyenne des pixels bleus*/
+        bmp->raster[pixel].blue =
+                (bmp->raster[pixel].blue +
+                 bmp->raster[pixel + 1].blue +
+                 bmp->raster[pixel - 1].blue +
+                 bmp->raster[pixel + bmp->width].blue +
+                 bmp->raster[pixel - bmp->width].blue +
+                 bmp->raster[pixel + bmp->width - 1].blue +
+                 bmp->raster[pixel - bmp->width - 1].blue +
+                 bmp->raster[pixel + bmp->width + 1].blue +
+                 bmp->raster[pixel - bmp->width + 1].blue) /
                 9;
     }
 
