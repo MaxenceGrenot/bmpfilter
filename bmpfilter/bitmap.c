@@ -397,6 +397,7 @@ void applyFilter(BITMAP *bmp, FILTER filter)
         break;
 
     case UNKNOWN:
+        printf("a parameter doesn't exist \n");
         break;
     }
 }
